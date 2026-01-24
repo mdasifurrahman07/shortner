@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import Header from "../components/Header";
 
 export default function LoginPage() {
@@ -85,15 +84,6 @@ export default function LoginPage() {
             Login
           </button>
         </form>
-        <p className="mt-6 text-sm text-center text-slate-400">
-          Don&apos;t have an account?{" "}
-          <Link
-            href="/register"
-            className="text-cyan-400 hover:text-cyan-300 underline"
-          >
-            Register here
-          </Link>
-        </p>
       </div>
     </>
   );

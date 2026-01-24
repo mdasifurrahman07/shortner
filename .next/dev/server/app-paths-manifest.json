@@ -1,6 +1,1 @@
-{
-  "/api/login/route": "app/api/login/route.js",
-  "/api/logout/route": "app/api/logout/route.js",
-  "/login/page": "app/login/page.js",
-  "/page": "app/page.js"
-}
+{}
