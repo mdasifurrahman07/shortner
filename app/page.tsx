@@ -3,12 +3,13 @@ import path from "path";
 import Table from "./components/Table";
 import Header from "./components/Header";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 export default async function HomePage() {
   const username = (await cookies()).get("username")?.value;
   if (!username) {
-    redirect("/aswqzx");
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+    );
   }
 
   const filePath = path.join(process.cwd(), "data", "links.json");
