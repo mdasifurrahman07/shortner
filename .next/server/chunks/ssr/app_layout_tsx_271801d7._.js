@@ -1,3 +1,0 @@
-module.exports=[33290,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsx)("html",{lang:"en",children:(0,b.jsx)("body",{className:"min-h-screen relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900",children:(0,b.jsx)("div",{className:"mx-auto max-w-6xl p-4 md:p-8",children:a})})})}a.s(["default",()=>c,"metadata",0,{title:"URL Shortener",description:"A modern URL shortener application",openGraph:{title:"URL Shortener",description:"A modern URL shortener application",url:"/",siteName:"URL Shortener",type:"website",locale:"en_US"}}])}];
-
-//# sourceMappingURL=app_layout_tsx_271801d7._.js.map

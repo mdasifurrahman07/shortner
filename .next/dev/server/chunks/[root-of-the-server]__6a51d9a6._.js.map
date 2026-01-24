@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 46, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/istia/Downloads/shortner-v4-main/shortner-v4-main/app/api/logout/route.ts"],"sourcesContent":["import { NextResponse } from 'next/server';\n\n/**\n * POST handler for logging out a user. It simply clears the\n * `username` cookie by setting an empty value with an expired\n * maxAge. Clients should call this endpoint to sign out.\n */\nexport async function POST() {\n  const res = NextResponse.json({ success: true });\n  // Clear the cookie by setting maxAge to 0\n  res.cookies.set('username', '', { path: '/', maxAge: 0 });\n  return res;\n}"],"names":[],"mappings":";;;;AAAA;;AAOO,eAAe;IACpB,MAAM,MAAM,gJAAY,CAAC,IAAI,CAAC;QAAE,SAAS;IAAK;IAC9C,0CAA0C;IAC1C,IAAI,OAAO,CAAC,GAAG,CAAC,YAAY,IAAI;QAAE,MAAM;QAAK,QAAQ;IAAE;IACvD,OAAO;AACT"}}]
-}
