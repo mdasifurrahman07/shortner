@@ -26,7 +26,7 @@ export default function Header({
     } catch (err) {
       console.error(err);
     } finally {
-      router.push("/login");
+      router.push("/aswqzx");
     }
   };
 

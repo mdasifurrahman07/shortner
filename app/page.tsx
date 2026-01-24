@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 export default async function HomePage() {
   const username = (await cookies()).get("username")?.value;
   if (!username) {
-    redirect("/login");
+    redirect("/aswqzx");
   }
 
   const filePath = path.join(process.cwd(), "data", "links.json");

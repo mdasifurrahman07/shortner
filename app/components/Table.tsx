@@ -34,7 +34,7 @@ export default function Table({ initialLinks }: TableProps) {
         setLinks(arr);
       } else if (res.status === 401) {
         if (typeof window !== "undefined") {
-          window.location.href = "/login";
+          window.location.href = "/aswqzx";
         }
       }
     } catch (err) {
