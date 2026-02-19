@@ -8,7 +8,16 @@ export default async function HomePage() {
   const username = (await cookies()).get("username")?.value;
   if (!username) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      <>
+        <style>{`
+          body {
+            background: #ffffff !important;
+            background-image: none !important;
+            color: #0f172a;
+          }
+        `}</style>
+        <div className="min-h-screen bg-white"></div>
+      </>
     );
   }
 
@@ -34,8 +43,17 @@ export default async function HomePage() {
 
   return (
     <>
-      <Header initialUsername={username} />
-      <Table initialLinks={initialLinks} />
+      <style>{`
+        body {
+          background: #ffffff !important;
+          background-image: none !important;
+          color: #0f172a;
+        }
+      `}</style>
+      <div className="min-h-screen bg-white text-slate-900">
+        <Header initialUsername={username} />
+        <Table initialLinks={initialLinks} />
+      </div>
     </>
   );
 }

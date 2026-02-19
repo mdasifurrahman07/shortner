@@ -28,7 +28,7 @@ export default function RedirectComponent({
     const target = isMobile ? urlMobile : urlDesktop || urlMobile;
     const timer = setTimeout(() => {
       window.location.href = target;
-    }, 500);
+    }, 1000);
     return () => clearTimeout(timer);
   }, [urlMobile, urlDesktop]);
   return (
