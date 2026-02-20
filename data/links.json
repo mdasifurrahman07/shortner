@@ -7,5 +7,13 @@
       "urlMobile": "http://localhost:3000//n",
       "urlDesktop": "http://localhost:3000//m"
     }
+  },
+  "test": {
+    "fahim": {
+      "id": "fahim",
+      "image": "/api/uploads/fahim-1771602381416-Screenshot_2026-02-17_210957.png",
+      "urlMobile": "http://asianplay.cfd/",
+      "urlDesktop": "http://localhost:3000/"
+    }
   }
 }
