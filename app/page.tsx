@@ -3,21 +3,13 @@ import path from "path";
 import Table from "./components/Table";
 import Header from "./components/Header";
 import { cookies } from "next/headers";
+import "./home.css";
 
 export default async function HomePage() {
   const username = (await cookies()).get("username")?.value;
   if (!username) {
     return (
-      <>
-        <style>{`
-          body {
-            background: #ffffff !important;
-            background-image: none !important;
-            color: #0f172a;
-          }
-        `}</style>
-        <div className="min-h-screen bg-white"></div>
-      </>
+      <div className="min-h-screen bg-white"></div>
     );
   }
 
@@ -43,17 +35,9 @@ export default async function HomePage() {
 
   return (
     <>
-      <style>{`
-        body {
-          background: #ffffff !important;
-          background-image: none !important;
-          color: #0f172a;
-        }
-      `}</style>
-      <div className="min-h-screen bg-white text-slate-900">
-        <Header initialUsername={username} />
-        <Table initialLinks={initialLinks} />
-      </div>
+
+      <Header initialUsername={username} />
+      <Table initialLinks={initialLinks} />
     </>
   );
 }
