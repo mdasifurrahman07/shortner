@@ -24,13 +24,47 @@ export default function RedirectComponent({
         ? urlMobile
         : urlDesktop || urlMobile;
 
+    const normalizeTarget = (raw: string) => {
+      const trimmed = (raw || "").trim();
+      if (!trimmed) return urlMobile;
+
+      // If we're on HTTPS, some in-app browsers are stricter about navigating
+      // to HTTP destinations. Facebook domains support HTTPS, so upgrade them.
+      if (
+        typeof window !== "undefined" &&
+        window.location.protocol === "https:"
+      ) {
+        try {
+          const parsed = new URL(trimmed);
+          const isFacebookDomain =
+            /(^|\.)facebook\.com$|(^|\.)fb\.me$|(^|\.)m\.me$|(^|\.)facebook\.net$/i.test(
+              parsed.hostname,
+            );
+          if (parsed.protocol === "http:" && isFacebookDomain) {
+            parsed.protocol = "https:";
+            return parsed.toString();
+          }
+        } catch {
+          // If URL parsing fails, just use the raw value.
+        }
+      }
+
+      return trimmed;
+    };
+
+    const finalTarget = normalizeTarget(target);
+
     const timer = setTimeout(() => {
-      window.location.href = target;
+      try {
+        window.location.replace(finalTarget);
+      } catch {
+        window.location.href = finalTarget;
+      }
     }, 1000);
     return () => clearTimeout(timer);
   }, [urlMobile, urlDesktop]);
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen">
+    <div className="flex flex-col items-center justify-center min-h-screen">
       <img
         src={image}
         alt="Loading"
