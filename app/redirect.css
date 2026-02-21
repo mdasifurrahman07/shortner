@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000 !important;
+  background-image: none !important;
+}
+
+@media (max-width: 767px) {
+  /* RootLayout wraps pages in a padded container; remove it on mobile for the redirect screen */
+  body > div {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}

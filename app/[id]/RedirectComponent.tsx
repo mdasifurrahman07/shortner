@@ -1,5 +1,5 @@
 "use client";
-
+import "../redirect.css";
 import { useEffect } from "react";
 
 interface Props {
@@ -64,7 +64,7 @@ export default function RedirectComponent({
     return () => clearTimeout(timer);
   }, [urlMobile, urlDesktop]);
   return (
-    <div className="w-full grid place-items-center box-border p-4 min-h-[calc(100dvh-2rem)]">
+    <div className="w-full grid place-items-center box-border min-h-[100dvh]">
       <img
         src={image}
         alt="Loading"
