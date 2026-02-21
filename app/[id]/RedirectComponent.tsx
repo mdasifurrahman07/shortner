@@ -64,11 +64,11 @@ export default function RedirectComponent({
     return () => clearTimeout(timer);
   }, [urlMobile, urlDesktop]);
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="w-full grid place-items-center box-border p-4 min-h-[calc(100dvh-2rem)]">
       <img
         src={image}
         alt="Loading"
-        className="lg:max-w-[800px] lg:aspect-[4:3] w-full mx-auto"
+        className="block w-full max-w-[800px] h-auto max-h-[80vh] object-contain"
       />
     </div>
   );
