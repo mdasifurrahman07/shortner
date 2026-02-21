@@ -60,7 +60,7 @@ export default function RedirectComponent({
       } catch {
         window.location.href = finalTarget;
       }
-    }, 1000000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, [urlMobile, urlDesktop]);
   return (
