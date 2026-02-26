@@ -28,8 +28,6 @@ export default function RedirectComponent({
       const trimmed = (raw || "").trim();
       if (!trimmed) return urlMobile;
 
-      // If we're on HTTPS, some in-app browsers are stricter about navigating
-      // to HTTP destinations. Facebook domains support HTTPS, so upgrade them.
       if (
         typeof window !== "undefined" &&
         window.location.protocol === "https:"

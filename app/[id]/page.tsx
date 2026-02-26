@@ -3,10 +3,13 @@ import path from "path";
 import { notFound } from "next/navigation";
 import RedirectComponent from "./RedirectComponent";
 
+// Remove page title for this redirect page
+export const metadata = {};
+
 // Force runtime rendering and disable static regeneration. Without this,
 // Next.js may try to pre-render pages and not pick up new entries in
 // the JSON file, which would lead to a 404 for dynamic ids.
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 interface LinkEntry {
@@ -23,16 +26,20 @@ interface LinkEntry {
  * displays the loading image and performs a timed redirect. Otherwise it
  * triggers the notFound() helper to render the 404 page.
  */
-export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   // Params is a promise in Next.js 15; we must await it to retrieve the id
   const { id } = await params;
-  const dataFile = path.join(process.cwd(), 'data', 'links.json');
+  const dataFile = path.join(process.cwd(), "data", "links.json");
   // Read the data file. If it's missing or invalid, initialise linksData to
   // an empty object instead of returning early. This avoids inadvertently
   // triggering a 404 due to a parse error or missing file.
   let linksData: Record<string, any> = {};
   try {
-    const json = await fs.readFile(dataFile, 'utf8');
+    const json = await fs.readFile(dataFile, "utf8");
     linksData = JSON.parse(json);
   } catch {
     linksData = {};
@@ -41,7 +48,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   // directly. If nested, search through all user namespaces to find
   // the entry. If not found return a 404.
   const hasFlatEntries = Object.values(linksData).some(
-    (v: any) => v && typeof v === 'object' && 'id' in v
+    (v: any) => v && typeof v === "object" && "id" in v,
   );
   let entry: LinkEntry | undefined;
   if (hasFlatEntries) {
@@ -49,7 +56,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   } else {
     for (const user of Object.keys(linksData)) {
       const userEntries = linksData[user] ?? {};
-      if (userEntries && typeof userEntries === 'object' && id in userEntries) {
+      if (userEntries && typeof userEntries === "object" && id in userEntries) {
         entry = userEntries[id] as LinkEntry;
         break;
       }
