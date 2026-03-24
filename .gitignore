@@ -2,6 +2,9 @@
 .next/
 out/
 
+# Data
+data/
+
 # dependencies
 node_modules/
 
